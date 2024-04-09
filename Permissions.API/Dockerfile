@@ -5,7 +5,7 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env
 WORKDIR /app
 
 # Copiar el archivo csproj y restaurar dependencias
-COPY ..\Permissions.Application\Permissions.API.csproj ./
+COPY Permissions.API.csproj ./
 RUN dotnet restore
 
 # Copiar el resto de los archivos y compilar la aplicación

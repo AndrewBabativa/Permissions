@@ -32,7 +32,8 @@ builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnC
 
 // Configuración de Entity Framework
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+        b => b.MigrationsAssembly("Permissions")));
 
 //Configuraciòn Serilog
 builder.Host.UseSerilog((context, configuration) =>
